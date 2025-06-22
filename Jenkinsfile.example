@@ -1,0 +1,99 @@
+pipeline {
+    agent any
+
+    environment {
+        GO_VERSION = '1.21'
+        GOPATH = "${env.WORKSPACE}/go"
+        GOBIN = "${env.GOPATH}/bin"
+        PATH = "${env.GOBIN}:${env.PATH}"
+        GO111MODULE = 'on'
+    }
+
+    tools {
+        go "${GO_VERSION}"
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
+        stage('Setup Go Modules') {
+            steps {
+                sh 'go mod download'
+            }
+        }
+
+        stage('Static Analysis') {
+            parallel {
+                stage('Lint') {
+                    steps {
+                        sh '''
+                            go install golang.org/x/lint/golint@latest
+                            golint ./...
+                        '''
+                    }
+                }
+
+                stage('Gosec') {
+                    steps {
+                        sh '''
+                            go install github.com/securego/gosec/v2/cmd/gosec@latest
+                            gosec ./...
+                        '''
+                    }
+                }
+
+                stage('Staticcheck') {
+                    steps {
+                        sh '''
+                            go install honnef.co/go/tools/cmd/staticcheck@latest
+                            staticcheck ./...
+                        '''
+                    }
+                }
+
+                stage('Govulncheck') {
+                    steps {
+                        sh '''
+                            go install golang.org/x/vuln/cmd/govulncheck@latest
+                            govulncheck ./...
+                        '''
+                    }
+                }
+            }
+        }
+
+        stage('Test') {
+            steps {
+                sh 'go test -v ./...'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                sh 'go build -o bin/app'
+            }
+        }
+
+        stage('Archive Artifact') {
+            steps {
+                archiveArtifacts artifacts: 'bin/app', fingerprint: true
+            }
+        }
+    }
+
+    post {
+        always {
+            junit '**/TEST-*.xml'
+            cleanWs()
+        }
+        failure {
+            mail to: 'team@example.com',
+                 subject: "Build failed in Jenkins: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                 body: "Check the Jenkins job here: ${env.BUILD_URL}"
+        }
+    }
+}
