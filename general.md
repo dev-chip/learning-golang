@@ -67,3 +67,16 @@ fmt.Println(c, d)
 * Dividing by 0 returns `+Inf` or `-Inf`.
 * Dividing a floating-point variable set to 0 by 0 returns NaN (Not a Number).
 
+## Arrays
+To declare an array:
+```go
+var arr = [...]int{10, 20, 30}
+```
+Array values are accessed and updated the same as Python.
+
+## Strings
+Values of a string can be extracted by indexing:
+```go
+var s string = "Hello world!"
+var b byte = s[3]
+```

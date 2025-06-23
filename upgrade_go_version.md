@@ -1,5 +1,5 @@
+# Updgrade Go Version
 
-## Updgrade Go Version
 To upgrade Go version on Linux:
 ```bash
 mv /usr/local/go /usr/local/go1.19.4

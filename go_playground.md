@@ -1,2 +1,2 @@
-## Go Playground
+# Go Playground
 https://go.dev/play/

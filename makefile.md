@@ -1,4 +1,4 @@
-## Makefile
+# Makefile
 
 Example makefile:
 ```Makefile
