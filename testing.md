@@ -1,0 +1,3 @@
+# Testing
+
+`go test ./… -bench=.`

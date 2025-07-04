@@ -85,4 +85,3 @@ unc readFile(filename string) {
 ```
 
 Defer execuses in using LIFO (stack-like). Keep this in mind when using `defer` multiple times in a function.
-
