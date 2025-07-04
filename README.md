@@ -2,12 +2,12 @@
 My personal notes for learning GoLang.
 
 ## Table of Contents
-- [General](general.md)
-- [Commands](commands.md)
-- [Tools]
+- [General Notes](general.md)
+- [Useful Commands](commands.md)
+- Tools
     - [Static Analysis](analysis_tools.md)
     - [Go Playground](go_playground.md)
-- [Fundamentals]
+- Fundamentals
     - [Control Structures](control_structures.md)
     - [Go Routines](go_routines.md)
     - [Maps](maps.md)
@@ -17,7 +17,7 @@ My personal notes for learning GoLang.
     - [Structs](structs.md)
     - [Types](types.md)
 - Testing
-    - (Testing)[testing.md]
+    - [Testing](testing.md)
 - Other Resources
     - [Bet365 GitHub](bet365_github.md)
     - [Jenkinsfile Example](Jenkinsfile.example)
