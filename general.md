@@ -80,3 +80,32 @@ Values of a string can be extracted by indexing:
 var s string = "Hello world!"
 var b byte = s[3]
 ```
+
+## iota
+Go doesn't have enumerations, it has `iota`.
+
+This:
+```go
+const (
+	Red int = iota
+	Orange
+	Yellow
+	Green
+	Blue
+	Indigo
+	Violet
+)
+```
+
+...is the same as this:
+```go
+const (
+	Red int = 0
+	Orange int = 1
+	Yellow int = 2
+	Green int = 3
+	Blue int = 4
+	Indigo int = 5
+	Violet int = 6
+)
+```
