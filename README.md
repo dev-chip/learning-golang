@@ -17,6 +17,7 @@ My personal notes for learning GoLang.
     - [Structs](structs.md)
     - [Types](types.md)
     - [Interfaces](interfaces.md)
+    - [Generics](generics.md)
 - Testing
     - [Testing](testing.md)
 - Other Resources

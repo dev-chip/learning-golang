@@ -2,6 +2,7 @@
 
 ## Overview
 Generics are a way of writing code that is independent of the specific types being used.
+
 * With generics, functions and types can be written to use any of a set of types.
 * Generics are similar to templates in C++, and are also utilised in other languages such as Java.
 * Generics use type parameters and type constraints.
@@ -45,16 +46,25 @@ type Differ[T any] interface {
 }
 ```
 
-TODO
-One more thing needs to be represented with generics: operators. The divAndRemain
-der function works fine with int, but using it with other integer types requires type
-casting, and uint allows you to represent values that are too big for an int. If you
-want to write a generic version of divAndRemainder, you need a way to specify that
-you can use / and %. Go generics do that with a type element, which is composed of
-one or more type terms within an interface:
+## Type Constraint Interface 
+Go generics allow you to define permitted type constraints with a type contraint interface:
 ```go
 type Integer interface {
     int | int8 | int16 | int32 | int64 |
     uint | uint8 | uint16 | uint32 | uint64 | uintptr
 }
+
+func Add[T Integer](a, b T) T {
+    return a + b
+}
 ```
+`|` is the union operator.
+
+Go allows you to define your own types, e.g. `type MyInt int` which won't match against a standard type constraints unless you use `~` symbol before the type name in the interface: 
+```go
+type Integer interface {
+ ~int | ~int8 | ~int16 | ~int32 | ~int64 |
+ ~uint | ~uint8 | ~uint16 | ~uint32 | ~uint64 | ~uintptr
+}
+```
+This allows a user-defined type to be matched against any type that shares the same underlying type.
