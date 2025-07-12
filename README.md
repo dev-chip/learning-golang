@@ -1,7 +1,7 @@
 # Learning GoLang
 My personal notes for learning GoLang.
 
-## Table of Contents
+## Contents
 - [General Notes](general.md)
 - [Useful Commands](commands.md)
 - Tools
