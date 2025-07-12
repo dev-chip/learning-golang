@@ -20,6 +20,7 @@ My personal notes for learning GoLang.
     - [Generics](generics.md)
     - [Errors](errors.md)
     - [Packages and Modules](packages_and_modules.md)
+    - [Goroutines](goroutines.md)
 - Testing
     - [Testing](testing.md)
 - Other Resources
