@@ -12,6 +12,8 @@ func sum(base int, vals ...int) int {
 }
 ```
 
+The variadic parameter must be the last (or only) parameter in the parameter list
+
 ## Multiple Return Values
 Go allows multiple return parameters:
 ```go

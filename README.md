@@ -18,6 +18,8 @@ My personal notes for learning GoLang.
     - [Types](types.md)
     - [Interfaces](interfaces.md)
     - [Generics](generics.md)
+    - [Errors](errors.md)
+    - [Packages and Modules](packages_and_modules.md)
 - Testing
     - [Testing](testing.md)
 - Other Resources
@@ -26,3 +28,4 @@ My personal notes for learning GoLang.
     - [Makefile Example](makefile.md)
     - [Upgrade Go Version](upgrade_go_version.md)
     - [Funky Images](img/)
+    - [Go Package Information](go_packages_info.md)

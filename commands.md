@@ -73,6 +73,4 @@ Fix an entire module:
 go tool fix ./...
 ```
 
-## go vet
-
 

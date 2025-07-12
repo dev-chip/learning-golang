@@ -1,4 +1,5 @@
 # General Notes
+General notes and topics that are brief enough that they don't need a dedicated section. 
 
 ## Assignment
 You can use `+=`, `-=`, `*=`, `/=`, and `%=`.
@@ -35,11 +36,6 @@ var (
  f, g string
 )
 ```
-const x = 10
-All of the following assignments are legal:
-var y int = x
-var z float64 = x
-var d byte = x
 
 ## Const Variables
 Constants can be typed or untyped:
@@ -109,3 +105,29 @@ const (
 	Violet int = 6
 )
 ```
+
+You can also use `iota` in an arithmetic expression:
+```go
+const (
+	C1 = iota + 1  	// 1
+	C2				// 2
+	C3				// 3
+)
+```
+
+## Go Doc Comments
+Go `Doc Comments` are comments that appear immediately before top-level package, const, func, type, and var declarations with no intervening newlines. Every exported (capitalized) name should have a doc comment.
+
+Go Doc Comments are similar to C++ documentation.
+```go
+// This is a Go Doc Comment for an example function that
+// does nothing useful. 
+// 
+// Some more detail, including params and return value
+// information, can be added here.
+func Example(s string) string {
+    return s;
+}
+```
+
+Similary, every package should have a package comment introducing the package.
