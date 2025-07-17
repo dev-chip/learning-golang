@@ -25,6 +25,8 @@ Any values returned by a Goroutine are ignored.
 ## Channels
 
 ### Channels Overview
+*Share memory by communicating; do not communicate by sharing memory.*
+
 A channel can be decalared like this:
 ```go
 ch := make(chan int)
@@ -199,3 +201,19 @@ func Parse(dataToParse string) string {
 }
 ```
 
+## Mutex
+A Mutex is a locking mechanism to ensure that only one Goroutine can access a section of code at a time. They are typically avoided where Goroutines can be used, and are only used when you need to share data across multiple goroutines.
+
+Go implements mutexes the same way C++ does:
+```go
+type Container struct {
+    mu       sync.Mutex
+    counters map[string]int
+}
+
+func (c *Container) inc(name string) {
+    c.mu.Lock()
+    defer c.mu.Unlock()
+    c.counters[name]++
+}
+```
