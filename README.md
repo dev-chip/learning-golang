@@ -9,7 +9,6 @@ My personal notes for learning GoLang.
     - [Go Playground](go_playground.md)
 - Fundamentals
     - [Control Structures](control_structures.md)
-    - [Go Routines](go_routines.md)
     - [Maps](maps.md)
     - [Methods](methods.md)
     - [Pointers](pointers.md)
